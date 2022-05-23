@@ -63,10 +63,7 @@ where `input_file` is a file containing the list of triples `[x, y, coeff]`. For
 
 ## About
 
-I made this script as I needed to plot some complex curves and I found no other way to do that in a customizable way.
+I made this script as I needed to plot some complex curves and I found no other way to do that in a customizable way. By default, the min-convention is used (to be consistent with the book *Introduction to Tropical Geometry* by Maclagan and Sturmfels), but civilized people can use the max convention with the `--convention max` flag. Convex hull calculation is done with scipy. In particular, numbers are floats, not symbolic. Go easy with large numbers.
 
- - By default, the min-convention is used (to be consistent with the book *Introduction to Tropical Geometry* by Maclagan and Sturmfels), but civilized people can use the max convention with the `--convention max` flag
- - Convex hull calculation is done with scipy. In particular, numbers are floats, not symbolic. Go easy with large numbers.
-
-Let me know if you find it useful or for features/bugs.
+Let me know if you find it useful, and tell me if you find bugs.
 
