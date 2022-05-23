@@ -40,6 +40,8 @@ def main():
 
     # load the list of points
     points = parse(in_filename)
+    if (len(points) < 3):
+        raise SystemExit('At least three monomials are needed')
 
     # preprocessing
     points = preprocess_points(points, use_min_convention)
