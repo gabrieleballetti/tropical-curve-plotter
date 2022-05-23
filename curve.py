@@ -5,9 +5,8 @@ import config
 
 EPSILON = 1e-09
 
-def plot(points, subdivision_ids, flat_edges=[]):
+def plot(ax, points, subdivision_ids, flat_edges=[], use_min_convention=True):
     # plot the tropical curve
-    ax = plt.subplot()
     vertices = set()
     edge_to_vert = dict()
     edge_to_third_pt = dict()
@@ -57,7 +56,7 @@ def plot(points, subdivision_ids, flat_edges=[]):
         # check that the edge normal points externally
         outer_vec = e[0] - points[int(edge_to_third_pt[edge])][:2]
         normal *= 1 if np.dot(normal, outer_vec) > 0 else -1
-        normal *= -1 if config.USE_MIN_CONVENTION else 1
+        normal *= -1 if use_min_convention else 1
 
         # clip tentacle to limits
         point = edge_to_vert[edge]
@@ -66,7 +65,3 @@ def plot(points, subdivision_ids, flat_edges=[]):
         end = point + min(t_x, t_y)*normal
 
         ax.plot([point[0], end[0]], [point[1], end[1]], color=config.COLOR)
-        
-    ax.axis('equal')
-    ax.axis('off')
-    plt.show()
